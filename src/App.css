@@ -1,119 +1,204 @@
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(20px, -20px) scale(1.05);
+  }
+}
+
 .page {
+  position: relative;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  background: #f4f7fd;
+}
+
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+  animation: drift 14s ease-in-out infinite;
+}
+
+.glow-a {
+  width: 420px;
+  height: 420px;
+  top: -140px;
+  right: -120px;
+  background: #4f8ef7;
+}
+
+.glow-b {
+  width: 320px;
+  height: 320px;
+  bottom: -100px;
+  left: -100px;
+  background: #6dd5ed;
+  animation-delay: -7s;
 }
 
 .hero {
-  background: linear-gradient(120deg, #0a2f8f 0%, #1155d6 55%, #1f7ae0 100%);
-  color: #fff;
-  padding: 40px 24px 56px;
-  text-align: left;
-}
-
-.hero-top {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  max-width: 960px;
-  margin: 0 auto;
-  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+  padding: 56px 24px 88px;
+  text-align: center;
+  color: #0e2a5e;
+  animation: fade-up 0.6s ease both;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 14px;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
 .brand-mark {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
 }
 
 .brand-mark .dot {
-  width: 36px;
-  height: 36px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  background: #fff;
+  background: linear-gradient(135deg, #1155d6, #2e9bf0);
   display: inline-block;
 }
 
 .brand-mark .arrow {
   width: 0;
   height: 0;
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
-  border-left: 26px solid #fff;
+  border-top: 16px solid transparent;
+  border-bottom: 16px solid transparent;
+  border-left: 20px solid #1155d6;
+}
+
+.brand-text {
+  text-align: left;
 }
 
 .brand-text h1 {
   margin: 0;
-  font-size: 34px;
+  font-size: 30px;
+  font-weight: 700;
   letter-spacing: 1px;
   line-height: 1;
+  color: #0e2a5e;
 }
 
 .brand-text p {
   margin: 4px 0 0;
-  font-size: 13px;
+  font-size: 12px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  opacity: 0.85;
-}
-
-.divider {
-  width: 1px;
-  height: 44px;
-  background: rgba(255, 255, 255, 0.4);
+  color: #5978b3;
 }
 
 .tags {
   list-style: none;
-  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 0 28px;
   padding: 0;
-  font-size: 15px;
+  flex-wrap: wrap;
+}
+
+.tags li {
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
   text-transform: uppercase;
-  line-height: 1.6;
+  color: #1155d6;
+  background: #e4edfd;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+.event-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .dates {
-  max-width: 960px;
-  margin: 24px auto 0;
-  letter-spacing: 1px;
-  font-size: 14px;
-  opacity: 0.9;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0e2a5e;
+}
+
+.venue {
+  margin: 0;
+  font-size: 13px;
+  color: #5978b3;
 }
 
 .content {
+  position: relative;
+  z-index: 1;
   flex: 1;
   display: flex;
   justify-content: center;
-  padding: 40px 16px 56px;
-  margin-top: -32px;
+  padding: 0 16px 56px;
+  margin-top: -56px;
 }
 
 .card {
   background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 12px 30px rgba(10, 47, 143, 0.15);
+  border-radius: 20px;
+  box-shadow: 0 20px 45px rgba(14, 42, 94, 0.12);
   padding: 32px;
   width: 100%;
-  max-width: 440px;
+  max-width: 420px;
+  animation: fade-up 0.6s ease 0.1s both;
 }
 
 .form-card h2 {
   margin: 0 0 4px;
-  color: #0a2f8f;
-  font-size: 24px;
+  color: #0e2a5e;
+  font-size: 22px;
+  font-weight: 700;
 }
 
 .subtitle {
   margin: 0 0 24px;
-  color: #5a6472;
+  color: #7a869e;
   font-size: 14px;
 }
 
@@ -135,24 +220,30 @@ label {
 
 input {
   font: inherit;
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid #d5dae3;
+  padding: 11px 13px;
+  border-radius: 10px;
+  border: 1px solid #e1e6f0;
+  background: #f9fafc;
   outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+input:hover {
+  border-color: #c7d3e6;
 }
 
 input:focus {
   border-color: #1155d6;
-  box-shadow: 0 0 0 3px rgba(17, 85, 214, 0.15);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(17, 85, 214, 0.12);
 }
 
 button {
   font: inherit;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 10px;
   border: none;
-  padding: 12px 16px;
+  padding: 13px 16px;
 }
 
 .primary {
@@ -160,11 +251,16 @@ button {
   color: #fff;
   font-weight: 600;
   margin-top: 8px;
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.15s;
 }
 
-.primary:hover {
+.primary:hover:not(:disabled) {
   background: #0a3fa8;
+  transform: translateY(-1px);
+}
+
+.primary:active:not(:disabled) {
+  transform: translateY(0);
 }
 
 .primary:disabled {
@@ -181,14 +277,42 @@ button {
 .success {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  align-items: center;
+  gap: 6px;
   text-align: center;
-  font-size: 17px;
-  padding: 12px 0;
-  color: #33394a;
+  padding: 16px 0;
+  color: #0e2a5e;
+}
+
+.success .check {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #e4edfd;
+  color: #1155d6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  margin-bottom: 10px;
+  animation: pop 0.5s ease both;
+}
+
+.success p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.success .success-sub {
+  font-size: 14px;
+  font-weight: 400;
+  color: #7a869e;
 }
 
 .footer {
+  position: relative;
+  z-index: 1;
   text-align: center;
   padding: 20px;
   font-size: 13px;
@@ -196,10 +320,10 @@ button {
 }
 
 @media (max-width: 640px) {
-  .hero-top {
-    gap: 16px;
+  .brand {
+    gap: 10px;
   }
-  .divider {
-    display: none;
+  .brand-text h1 {
+    font-size: 26px;
   }
 }

@@ -38,33 +38,40 @@ function App() {
 
   return (
     <div className="page">
+      <div className="glow glow-a" />
+      <div className="glow glow-b" />
+
       <header className="hero">
-        <div className="hero-top">
-          <div className="brand">
-            <div className="brand-mark">
-              <span className="dot" />
-              <span className="arrow" />
-            </div>
-            <div className="brand-text">
-              <h1>FITEC</h1>
-              <p>Foro Innovación y Tecnología</p>
-            </div>
+        <div className="brand">
+          <div className="brand-mark">
+            <span className="dot" />
+            <span className="arrow" />
           </div>
-          <div className="divider" />
-          <ul className="tags">
-            <li>Tecnología</li>
-            <li>Mipymes</li>
-            <li>Conectividad</li>
-          </ul>
+          <div className="brand-text">
+            <h1>FITEC</h1>
+            <p>Foro Innovación y Tecnología</p>
+          </div>
         </div>
-        <p className="dates">1 – 3 Septiembre 2026</p>
+
+        <ul className="tags">
+          <li>Tecnología</li>
+          <li>Mipymes</li>
+          <li>Conectividad</li>
+        </ul>
+
+        <div className="event-info">
+          <p className="dates">1 – 3 Septiembre 2026</p>
+          <p className="venue">Holiday Inn Villahermosa Aeropuerto</p>
+        </div>
       </header>
 
       <main className="content">
         <section className="card form-card">
           {submitted ? (
             <div className="success">
-              <p>¡Gracias, {form.nombre}! Tu registro fue recibido.</p>
+              <span className="check">✓</span>
+              <p>¡Gracias, {form.nombre}!</p>
+              <p className="success-sub">Tu registro fue recibido.</p>
             </div>
           ) : (
             <>
@@ -113,7 +120,7 @@ function App() {
                 {error && <p className="error">{error}</p>}
 
                 <button type="submit" className="primary" disabled={loading}>
-                  {loading ? 'Enviando...' : 'Enviar registro'}
+                  {loading ? 'Enviando…' : 'Enviar registro'}
                 </button>
               </form>
             </>
