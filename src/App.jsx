@@ -51,6 +51,12 @@ function App() {
             <h1>FITEC</h1>
             <p>Foro Innovación y Tecnología</p>
           </div>
+          <div className="brand-divider" />
+          <img
+            src="/fortress8-logo.svg"
+            alt="Fortress8"
+            className="partner-logo"
+          />
         </div>
 
         <ul className="tags">

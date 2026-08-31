@@ -129,6 +129,18 @@
   color: #bcdcff;
 }
 
+.brand-divider {
+  width: 1px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.25);
+  margin: 0 2px;
+}
+
+.partner-logo {
+  width: 30px;
+  height: auto;
+}
+
 .tags {
   list-style: none;
   display: flex;
