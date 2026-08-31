@@ -29,7 +29,7 @@
     transform: translate(0, 0) scale(1);
   }
   50% {
-    transform: translate(20px, -20px) scale(1.05);
+    transform: translate(24px, -24px) scale(1.06);
   }
 }
 
@@ -39,42 +39,42 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background: #f4f7fd;
+  background: linear-gradient(155deg, #061a3f 0%, #0a2f8f 45%, #0f8fd6 100%);
+  color: #fff;
 }
 
 .glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(70px);
-  opacity: 0.35;
+  filter: blur(90px);
+  opacity: 0.45;
   pointer-events: none;
   z-index: 0;
-  animation: drift 14s ease-in-out infinite;
+  animation: drift 16s ease-in-out infinite;
 }
 
 .glow-a {
-  width: 420px;
-  height: 420px;
-  top: -140px;
-  right: -120px;
-  background: #4f8ef7;
+  width: 460px;
+  height: 460px;
+  top: -160px;
+  right: -140px;
+  background: #33d6ff;
 }
 
 .glow-b {
-  width: 320px;
-  height: 320px;
-  bottom: -100px;
-  left: -100px;
-  background: #6dd5ed;
-  animation-delay: -7s;
+  width: 360px;
+  height: 360px;
+  bottom: -120px;
+  left: -120px;
+  background: #1155d6;
+  animation-delay: -8s;
 }
 
 .hero {
   position: relative;
   z-index: 1;
-  padding: 56px 24px 88px;
+  padding: 56px 24px 96px;
   text-align: center;
-  color: #0e2a5e;
   animation: fade-up 0.6s ease both;
 }
 
@@ -93,19 +93,19 @@
 }
 
 .brand-mark .dot {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #1155d6, #2e9bf0);
+  background: #fff;
   display: inline-block;
 }
 
 .brand-mark .arrow {
   width: 0;
   height: 0;
-  border-top: 16px solid transparent;
-  border-bottom: 16px solid transparent;
-  border-left: 20px solid #1155d6;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 22px solid #fff;
 }
 
 .brand-text {
@@ -114,11 +114,11 @@
 
 .brand-text h1 {
   margin: 0;
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 700;
   letter-spacing: 1px;
   line-height: 1;
-  color: #0e2a5e;
+  color: #fff;
 }
 
 .brand-text p {
@@ -126,7 +126,7 @@
   font-size: 12px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  color: #5978b3;
+  color: #bcdcff;
 }
 
 .tags {
@@ -144,8 +144,10 @@
   font-weight: 600;
   letter-spacing: 0.4px;
   text-transform: uppercase;
-  color: #1155d6;
-  background: #e4edfd;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
   padding: 6px 14px;
   border-radius: 999px;
 }
@@ -160,13 +162,13 @@
   margin: 0;
   font-size: 16px;
   font-weight: 600;
-  color: #0e2a5e;
+  color: #fff;
 }
 
 .venue {
   margin: 0;
   font-size: 13px;
-  color: #5978b3;
+  color: #bcdcff;
 }
 
 .content {
@@ -176,13 +178,13 @@
   display: flex;
   justify-content: center;
   padding: 0 16px 56px;
-  margin-top: -56px;
+  margin-top: -64px;
 }
 
 .card {
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 20px 45px rgba(14, 42, 94, 0.12);
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 22px;
+  box-shadow: 0 24px 55px rgba(3, 15, 45, 0.35);
   padding: 32px;
   width: 100%;
   max-width: 420px;
@@ -191,7 +193,7 @@
 
 .form-card h2 {
   margin: 0 0 4px;
-  color: #0e2a5e;
+  color: #0a2f8f;
   font-size: 22px;
   font-weight: 700;
 }
@@ -229,13 +231,13 @@ input {
 }
 
 input:hover {
-  border-color: #c7d3e6;
+  border-color: #a9c1ee;
 }
 
 input:focus {
   border-color: #1155d6;
   background: #fff;
-  box-shadow: 0 0 0 4px rgba(17, 85, 214, 0.12);
+  box-shadow: 0 0 0 4px rgba(17, 85, 214, 0.14);
 }
 
 button {
@@ -247,15 +249,15 @@ button {
 }
 
 .primary {
-  background: #1155d6;
+  background: linear-gradient(120deg, #0a2f8f, #0f8fd6);
   color: #fff;
   font-weight: 600;
   margin-top: 8px;
-  transition: background 0.2s, transform 0.15s;
+  transition: filter 0.2s, transform 0.15s;
 }
 
 .primary:hover:not(:disabled) {
-  background: #0a3fa8;
+  filter: brightness(1.08);
   transform: translateY(-1px);
 }
 
@@ -281,15 +283,15 @@ button {
   gap: 6px;
   text-align: center;
   padding: 16px 0;
-  color: #0e2a5e;
+  color: #0a2f8f;
 }
 
 .success .check {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: #e4edfd;
-  color: #1155d6;
+  background: linear-gradient(120deg, #0a2f8f, #0f8fd6);
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -316,7 +318,7 @@ button {
   text-align: center;
   padding: 20px;
   font-size: 13px;
-  color: #7c8494;
+  color: #bcdcff;
 }
 
 @media (max-width: 640px) {
