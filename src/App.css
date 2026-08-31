@@ -178,17 +178,13 @@ button {
   font-size: 13px;
 }
 
-.secondary {
-  background: #eef2fb;
-  color: #1155d6;
-  font-weight: 600;
-}
-
 .success {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  text-align: left;
+  text-align: center;
+  font-size: 17px;
+  padding: 12px 0;
   color: #33394a;
 }
 

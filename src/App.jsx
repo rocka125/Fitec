@@ -62,69 +62,61 @@ function App() {
 
       <main className="content">
         <section className="card form-card">
-          <h2>Regístrate</h2>
-          <p className="subtitle">
-            Completa tus datos para asegurar tu lugar en FITEC 2026.
-          </p>
-
           {submitted ? (
             <div className="success">
               <p>¡Gracias, {form.nombre}! Tu registro fue recibido.</p>
-              <button
-                type="button"
-                className="secondary"
-                onClick={() => {
-                  setForm(initialForm)
-                  setSubmitted(false)
-                }}
-              >
-                Registrar otra persona
-              </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit}>
-              <label>
-                Nombre
-                <input
-                  type="text"
-                  name="nombre"
-                  value={form.nombre}
-                  onChange={handleChange}
-                  placeholder="Nombre completo"
-                  required
-                />
-              </label>
+            <>
+              <h2>Regístrate</h2>
+              <p className="subtitle">
+                Completa tus datos para asegurar tu lugar en FITEC 2026.
+              </p>
 
-              <label>
-                Institución
-                <input
-                  type="text"
-                  name="institucion"
-                  value={form.institucion}
-                  onChange={handleChange}
-                  placeholder="Empresa, universidad u organización"
-                  required
-                />
-              </label>
+              <form onSubmit={handleSubmit}>
+                <label>
+                  Nombre
+                  <input
+                    type="text"
+                    name="nombre"
+                    value={form.nombre}
+                    onChange={handleChange}
+                    placeholder="Nombre completo"
+                    required
+                  />
+                </label>
 
-              <label>
-                Correo institucional
-                <input
-                  type="email"
-                  name="correo"
-                  value={form.correo}
-                  onChange={handleChange}
-                  placeholder="nombre@institucion.com"
-                  required
-                />
-              </label>
+                <label>
+                  Institución
+                  <input
+                    type="text"
+                    name="institucion"
+                    value={form.institucion}
+                    onChange={handleChange}
+                    placeholder="Empresa, universidad u organización"
+                    required
+                  />
+                </label>
 
-              {error && <p className="error">{error}</p>}
+                <label>
+                  Correo institucional
+                  <input
+                    type="email"
+                    name="correo"
+                    value={form.correo}
+                    onChange={handleChange}
+                    placeholder="nombre@institucion.com"
+                    required
+                  />
+                </label>
 
-              <button type="submit" className="primary" disabled={loading}>
-                {loading ? 'Enviando...' : 'Enviar registro'}
-              </button>
-            </form>
+                {error && <p className="error">{error}</p>}
+
+                <button type="submit" className="primary" disabled={loading}>
+                  {loading ? 'Enviando...' : 'Enviar registro'}
+                </button>
+              </form>
+            </>
           )}
         </section>
       </main>
