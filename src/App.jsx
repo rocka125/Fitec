@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { supabase } from './supabaseClient'
 import './App.css'
 
 const initialForm = { nombre: '', institucion: '', correo: '' }
@@ -6,14 +7,32 @@ const initialForm = { nombre: '', institucion: '', correo: '' }
 function App() {
   const [form, setForm] = useState(initialForm)
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   const handleChange = (e) => {
     const { name, value } = e.target
     setForm((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
+    setError('')
+
+    const { error: insertError } = await supabase.from('registrations').insert({
+      nombre: form.nombre,
+      institucion: form.institucion,
+      correo: form.correo,
+    })
+
+    setLoading(false)
+
+    if (insertError) {
+      setError('No se pudo enviar tu registro. Intenta de nuevo.')
+      return
+    }
+
     setSubmitted(true)
   }
 
@@ -100,8 +119,10 @@ function App() {
                 />
               </label>
 
-              <button type="submit" className="primary">
-                Enviar registro
+              {error && <p className="error">{error}</p>}
+
+              <button type="submit" className="primary" disabled={loading}>
+                {loading ? 'Enviando...' : 'Enviar registro'}
               </button>
             </form>
           )}
